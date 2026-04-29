@@ -1,9 +1,9 @@
 {
-  "id": "/Proyecto/",
+  "id": "/REPO-PRUEBAS-PROYECTO/",
   "name": "Undergrade Distance",
   "short_name": "Undergrade",
   "description": "Aplicación educativa de aulas virtuales Undergrade Distance",
-  "start_url": "./pages/index.html",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
@@ -11,13 +11,13 @@
   "theme_color": "#67AAE6",
   "icons": [
     {
-      "src": "img/LOGO.png",
+      "src": "./img/LOGO.png",
       "sizes": "500x500",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "img/LOGO.png",
+      "src": "./img/LOGO.png",
       "sizes": "500x500",
       "type": "image/png",
       "purpose": "maskable"
@@ -25,18 +25,11 @@
   ],
   "screenshots": [
     {
-      "src": "img/screenshot-mobile.png",
+      "src": "./img/FONDOPRINCIPAL.jpeg",
       "sizes": "1231x1920",
-      "type": "image/png",
+      "type": "image/jpeg",
       "form_factor": "narrow",
       "label": "Vista móvil de Undergrade"
-    },
-    {
-      "src": "img/screenshot-desktop.png",
-      "sizes": "1920x1154",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "Vista escritorio de Undergrade"
     }
   ]
 }
