@@ -28,7 +28,7 @@ html {
   background-color: #ffffff;
 }
 
-.header-Principal {
+.header-principal {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,16 +55,16 @@ html {
 }
 
 /* Une los 2 menús en horizontal */
-.menu-pri,
-.menu-seg {
+.menu-secundario,
+.menu-tercero {
   display: inline-block;
   vertical-align: middle;
   margin-left: 20px; /* espacio con el logo */
 }
 
 /* Para que los <ul> se vean en línea */
-.menu-pri ul,
-.menu-seg ul {
+.menu-secundario ul,
+.menu-tercero ul {
   display: flex;
   gap: 20px; /* espacio entre items */
   list-style: none;
@@ -73,7 +73,7 @@ html {
 }
 
 /* Quitar viñeta y márgenes */
-.menu ul {
+.menu-primario ul {
   list-style: none; /* quita el punto */
   padding-left: 0; /* quita sangría */
   margin: 0; /* quita margen */
@@ -81,7 +81,7 @@ html {
   align-items: center; /* centra verticalmente */
 }
 
-.menu ul li {
+.menu-primario ul li {
   color: #ffffff; /* color blanco */
   font-size: 16px; /* tamaño de fuente */
   font-family: "Montserrat";
@@ -91,7 +91,7 @@ html {
 }
 
 /* Menú pri*/
-.menu-pri ul {
+.menu-secundario ul {
   display: flex;
   gap: 30px; /* espacio entre enlaces */
   list-style: none;
@@ -99,7 +99,7 @@ html {
   padding: 0;
 }
 
-.menu-pri ul li a {
+.menu-secundario ul li a {
   text-decoration: none;
   color: #9e67e6; /* color texto */
   font-weight: 500;
@@ -108,12 +108,12 @@ html {
   transition: color 0.3s ease;
 }
 
-.menu-pri ul li a:hover {
+.menu-secundario ul li a:hover {
   color: #244fe6; /* color al pasar */
 }
 
 /* Menú seg*/
-.menu-seg ul {
+.menu-tercero ul {
   display: flex;
   font-family: "Arvo";
   gap: 30px; /* espacio entre enlaces */
@@ -122,7 +122,7 @@ html {
   padding: 0;
 }
 
-.menu-seg ul li a {
+.menu-tercero ul li a {
   text-decoration: none;
   color: #244fe6; /* color texto */
   font-weight: 500;
@@ -130,7 +130,7 @@ html {
   transition: color 0.3s ease;
 }
 
-.menu-seg ul li a:hover {
+.menu-tercero ul li a:hover {
   color: #244fe6; /* color al pasar */
 }
 
@@ -181,25 +181,40 @@ html {
 
 /* Imagen con texto */
 
+/* Contenedor del banner */
 .banner {
   position: relative;
-  max-width: 550px;
+  display: inline-block;
+  width: 100%;
+  height: auto;
 }
 
+/* Imagen del banner */
 .banner img {
   width: 100%;
-  border-radius: 8px;
+  height: auto;
+  display: block;
 }
 
+/* Texto superpuesto sobre la imagen */
 .banner-text {
-  font-family: "Arvo";
   position: absolute;
-  top: 20px;
-  left: 20px;
-  color: #ffffff;
-  font-size: 28px;
-  font-weight: bold;
-  text-shadow: 2px 2px 8px #ffffff(238, 235, 235, 0.856);
+  top: 50%;                /* Centra verticalmente */
+  left: 50%;               /* Centra horizontalmente */
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Título con contraste accesible */
+.banner-text h2 {
+  color: #fff;                            /* Blanco */
+  background-color: rgba(0, 0, 0, 0.55);  /* Fondo negro semitransparente */
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-size: 32px;
+  font-family: "Arvo", serif;
+  font-weight: 700;
+  margin: 0;
 }
 
 /* Tarjeta de login */
@@ -232,7 +247,7 @@ html {
 }
 
 .input-group i {
-  margin-right: 10px;
+  margin-right: 20px;
   color: #000000;
 }
 
@@ -288,75 +303,78 @@ html {
   color: #9e67e6;
 }
 
-/*Bienvenidad*/
 
+
+/*Bienvenidad*/
 body {
   margin: 0;
   font-family: "Cabin", "Arvo", "Montserrat";
   background-color: #ffffff;
 }
 
-/* Contenedor principal */
+/* === Sección de Bienvenida === */
 .bienvenida {
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 100px;
-  min-height: 500px;
-  background-color: #67aae6;
+  align-items: center; /* centra imagen y texto verticalmente */
+  padding: 5px 100px; /* antes 100px, ahora menos padding vertical */
+  min-height: 50px; /* ocupa toda la pantalla */
+  background-color: #c6dff5;
+  box-sizing: border-box;
 }
 
 /* Imagen */
 .bienvenida img {
-  width: 400px;
-  height: auto;
+  width: 300px;
   border-radius: 30px;
   margin-right: 30px;
   box-shadow: 0px 4px 10px rgba(7, 75, 219, 0.2);
 }
 
 /* Bloque de texto */
-.texto {
+.frase {
   max-width: 500px;
+  margin-top: -30px; /* súbelo más, prueba con -40px si quieres */
 }
 
-.texto h1 {
+.frase h1 {
   font-family: "Cabin";
   font-size: 28px;
   color: #000000;
   margin-bottom: 15px;
 }
 
-.texto p {
+.frase p {
   font-family: "Arvo";
-  font-size: 16px;
+  font-size: 20px;
   color: #000000;
   line-height: 1.5;
 }
 
-/* Barra de navegación */
+/* === Barra de navegación === */
 .navegacion {
   background-color: #2a4dff;
   color: #ffffff;
-  padding: 20px 0;
+  padding: 15px 0;
   text-align: center;
   font-weight: bold;
   position: sticky;
-  top: 0; /* siempre visible arriba */
+  top: 0;
 }
 
 .navegacion a {
   font-family: "Cabin";
+  font-size: 20px;
   color: #ffffff;
   text-decoration: none;
-  margin: 0 70px;
+  margin: 0 50px;
 }
 
 .navegacion a:hover {
   text-decoration: underline;
 }
 
-/* Sección de tarjetas */
+/* === Sección de tarjetas === */
 .tarjetas {
   display: flex;
   justify-content: center;
@@ -374,32 +392,23 @@ body {
   padding: 20px;
   width: 220px;
   text-align: center;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+}
+
+.tarjeta a{
+  text-decoration: none;
 }
 
 .tarjeta h3 {
-  margin-bottom: 10px;
-  color: #9e67e6;
+  color: #000000;
 }
 
-.boton-ingresar {
-  display: inline-block;
-  padding: 8px 16px;
-  color: #9e67e6;
-  background-color: #ffffff;
-  border: 1px solid #000000;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: 0.3s;
-}
-
-.boton-ingresar:hover {
-  background-color: #244FE6;
-  color: #ffffff;
-}
-
-
-.nota {
+/* === Texto motivacional === */
+.texto {
   border-radius: 8px;
   text-align: center;
   font-size: 16px;
@@ -407,34 +416,13 @@ body {
   line-height: 1.5;
 }
 
-.nota p {
-  font-size: 20px;
-  font-family: cursive;
-  margin-bottom: 40px;
+.texto p {
+  font-size: 40px;
+  font-family: "Cabin";
+  margin-bottom: 6px;
 }
 
-/* Barra de navegación */
-.navegacion {
-  background-color: #2a4dff;
-  color: #ffffff;
-  padding: 15px 0;
-  text-align: center;
-  font-weight: bold;
-  position: sticky;
-  top: 0;
-}
-
-.navegacion a {
-  color: #ffffff;
-  text-decoration: none;
-  margin: 0 50px;
-}
-
-.navegacion a:hover {
-  text-decoration: underline;
-}
-
-/* Fondo del modal */
+/* === Modales === */
 .modal {
   display: none;
   position: fixed;
@@ -442,7 +430,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #000000(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.6); /* Corregido */
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -450,19 +438,25 @@ body {
 
 /* Caja del modal */
 .modal-contenido {
+  font-family: "Cabin";
+  font-size: 20px;
   background: #ffffff;
-  padding: 20px;
+  color: #000000;
+  padding: 30px;
   border-radius: 8px;
   width: 400px;
   text-align: center;
-  box-shadow: 0 4px 10px #000000(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(50, 22, 151, 0.3); /* Corregido */
 }
 
+.modal-contenido h2{
+  color: #244FE6;
+}
 /* Botón cerrar */
 .cerrar {
   display: inline-block;
   margin-top: 15px;
-  color: #9e67e6;
+  color: #244FE6;
   text-decoration: none;
   font-weight: bold;
 }
@@ -472,27 +466,21 @@ body {
   display: flex;
 }
 
-.curses ul li{
-  display: flex;
-  align-items: center;
-  justify-content: left;
-}
 
-.curses h2{ 
-  display: flex;
-  justify-content: left;
-}
+
+
 
 .asignaturas {
-  background-color: #67aae6;
+  background-color: #d2dee9;
   padding: 20px 40px;
 }
 
 .asignaturas h2 {
-  font-size: 2rem;
+  font-size: 25px;
   margin-bottom: 30px;
   text-align: left;
   padding-left: 10px;
+  color: #000000;
 }
 
 /* contenedor grid SOLO para las tarjetas */
@@ -521,14 +509,119 @@ body {
 
 .curso h3 {
   color: #244FE6;
-  font-size: 1rem;
+  font-size: 20px;
   margin: 5px 0;
 }
 
 .curso p {
   margin-top: 20px;
-  font-size: 0.9rem;
+  font-size: 20px;
   color: #244FE6;
+}
+
+/*Calificaciones*/
+
+.calificaciones {
+  background-color: #e1ebf3;
+  padding: 20px 40px;
+}
+
+.calificaciones h2 {
+  font-size: 30px;
+  margin-bottom: 30px;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.calificaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: start; /* alinea las tarjetas al inicio */
+}
+
+.nota {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(7, 60, 206, 0.15);
+  text-align: center;
+  width: 250px; /* ancho fijo para que queden igual */
+}
+
+.nota img {
+  margin-top: 20px;
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 5px 5px 10px 5px rgba(10, 103, 190, 0.2);
+}
+
+.nota h3 {
+  color: #000000;
+  font-size: 25px;
+  margin: 5px 0;
+}
+
+.nota p {  
+  margin-top: 20px;
+  font-size: 25px;
+  color: #0b0edd;
+}
+
+
+
+#accessibility-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #4b00ff, #7a2cff);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+#accessibility-menu {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+#accessibility-menu button {
+  padding: 8px 12px;
+  border: none;
+  background-color: #4b00ff;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#accessibility-menu button:hover {
+  background-color: #6933ff;
+}
+
+
+.high-contrast {
+  filter: invert(1) hue-rotate(180deg);
+  background-color: black;
+  color: white;
 }
 
 

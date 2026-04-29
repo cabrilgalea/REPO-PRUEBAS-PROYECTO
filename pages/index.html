@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="manifest" href="../manifest.json" />
+    <link rel="icon" type="image/png" href="../img/LOGO.png" />
+
+    <meta name="theme-color" content="#67AAE6" />
+
+    <link rel="stylesheet" href="../styles/estilos.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Cabin:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Undergrade Distance</title>
+  </head>
+
+  <body>
+    <header class="header-principal">
+      <nav class="menu-primario">
+        <ul>
+          <li>Undergrade Distance</li>
+        </ul>
+      </nav>
+
+      <div class="enter-container">
+        <div class="icons">
+          <a href="https://facebook.com"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+          <a href="https://instagram.com"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="https://twitter.com"><i class="fa-brands fa-twitter"></i></a>
+          <a href="https://linkedin.com"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+        </div>
+      </div>
+    </header>
+
+    <div class="logo">
+      <img src="../img/LOGO.png" alt="logo Pagina" />
+    </div>
+
+    <nav class="menu-secundario">
+      <ul>
+        <li><a href="#Preg Distance">Preg Distance</a></li>
+      </ul>
+    </nav>
+
+    <nav class="menu-tercero">
+      <ul>
+        <li><a href="#Idioma">Idioma</a></li>
+        <li><a href="#Horario de Atencion">Horario de Atencion</a></li>
+        <li><a href="#Soporte Tecnico">Soporte Técnico</a></li>
+      </ul>
+    </nav>
+
+    <section class="login-section">
+      <div class="banner">
+        <img src="../img/FONDOPRINCIPAL.jpeg" alt="Banner Principal" />
+        <div class="banner-text">
+          <h2>Aulas virtuales Uniminuto</h2>
+        </div>
+      </div>
+
+      <section class="login">
+        <h3>INICIO DE SESION</h3>
+        <form>
+          <div class="input-group">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" placeholder="Usuario" required />
+          </div>
+
+          <div class="input-group">
+            <i class="fa-solid fa-lock"></i>
+            <input type="password" placeholder="Contraseña" required />
+          </div>
+
+          <a href="#" class="forgot">¿Olvidaste tu Contraseña?</a>
+          <button type="submit" class="btn-login">Ingresar</button>
+        </form>
+      </section>
+    </section>
+
+    <div id="accessibility-btn"><span>🧍</span></div>
+
+    <div id="accessibility-menu">
+      <h4>Accesibilidad</h4>
+      <button id="zoom-in">Aumentar tamaño</button>
+      <button id="zoom-out">Reducir tamaño</button>
+      <button id="toggle-contrast">Alto contraste</button>
+      <button id="reset">Restablecer</button>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/accesibilidad.js"></script>
+
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          // Registramos apuntando a la raíz donde está el archivo físicamente
+          navigator.serviceWorker
+            .register("../service-worker.js")
+            .then((reg) => {
+              console.log(
+                "Service Worker registrado con éxito en el scope:",
+                reg.scope,
+              );
+            })
+            .catch((err) =>
+              console.log("Error al registrar el Service Worker", err),
+            );
+        });
+      }
+    </script>
+  </body>
+
+  <footer></footer>
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  />
+</html>
