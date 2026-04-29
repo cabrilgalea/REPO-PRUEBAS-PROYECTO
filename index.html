@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="manifest" href="../manifest.json" />
-    <link rel="icon" type="image/png" href="../img/LOGO.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" type="image/png" href="./img/LOGO.png" />
 
     <meta name="theme-color" content="#67AAE6" />
 
-    <link rel="stylesheet" href="../styles/estilos.css" />
+    <link rel="stylesheet" href="./styles/estilos.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,6 +19,46 @@
     />
 
     <title>Undergrade Distance</title>
+
+    <style>
+      .pwa-tools {
+        background: #f0f7ff;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 15px;
+        text-align: center;
+        border: 2px solid #67AAE6;
+      }
+      .video-preview {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 10px;
+        background: #000;
+        margin-bottom: 10px;
+      }
+      .calc-area {
+        margin-top: 20px;
+        padding: 15px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+      .calc-area input {
+        width: 60px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      .btn-tool {
+        background: #67AAE6;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+    </style>
   </head>
 
   <body>
@@ -31,23 +71,36 @@
 
       <div class="enter-container">
         <div class="icons">
-          <a href="https://facebook.com"
-            ><i class="fa-brands fa-facebook"></i
-          ></a>
-          <a href="https://instagram.com"
-            ><i class="fa-brands fa-instagram"></i
-          ></a>
+          <a href="https://facebook.com"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://instagram.com"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://twitter.com"><i class="fa-brands fa-twitter"></i></a>
-          <a href="https://linkedin.com"
-            ><i class="fa-brands fa-linkedin"></i
-          ></a>
+          <a href="https://linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
         </div>
       </div>
     </header>
 
     <div class="logo">
-      <img src="../img/LOGO.png" alt="logo Pagina" />
+      <img src="./img/LOGO.png" alt="logo Pagina" />
     </div>
+
+    <section class="pwa-tools">
+      <h3>Herramientas PWA</h3>
+      
+      <div class="camera-module">
+        <video id="player" class="video-preview" autoplay playsinline></video>
+        <canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
+        <br>
+        <button class="btn-tool" id="start-camera">Activar Cámara</button>
+        <button class="btn-tool" id="capture-photo" style="display:none;">Capturar</button>
+      </div>
+
+      <div class="calc-area">
+        <h4>Calculadora</h4>
+        <input type="number" id="val1"> + <input type="number" id="val2">
+        <button class="btn-tool" onclick="ejecutarSuma()">=</button>
+        <strong id="resultado-calc" style="margin-left: 10px;">?</strong>
+      </div>
+    </section>
 
     <nav class="menu-secundario">
       <ul>
@@ -65,7 +118,7 @@
 
     <section class="login-section">
       <div class="banner">
-        <img src="../img/FONDOPRINCIPAL.jpeg" alt="Banner Principal" />
+        <img src="./img/FONDOPRINCIPAL.jpeg" alt="Banner Principal" />
         <div class="banner-text">
           <h2>Aulas virtuales Uniminuto</h2>
         </div>
@@ -100,30 +153,47 @@
       <button id="reset">Restablecer</button>
     </div>
 
-    <script src="../js/main.js"></script>
-    <script src="../js/accesibilidad.js"></script>
+    <script src="./js/script.js"></script> <script src="./js/accesibilidad.js"></script>
 
     <script>
+      const player = document.getElementById('player');
+      const btnStart = document.getElementById('start-camera');
+      const btnCapture = document.getElementById('capture-photo');
+      const canvas = document.getElementById('canvas');
+
+      btnStart.addEventListener('click', async () => {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+          player.srcObject = stream;
+          btnStart.style.display = 'none';
+          btnCapture.style.display = 'inline-block';
+        } catch (err) {
+          alert("Asegúrate de estar en HTTPS para usar la cámara");
+        }
+      });
+
+      btnCapture.addEventListener('click', () => {
+        const context = canvas.getContext('2d');
+        context.drawImage(player, 0, 0, canvas.width, canvas.height);
+        alert("¡Foto tomada con éxito!");
+      });
+
+      function ejecutarSuma() {
+        const n1 = parseFloat(document.getElementById('val1').value) || 0;
+        const n2 = parseFloat(document.getElementById('val2').value) || 0;
+        document.getElementById('resultado-calc').innerText = n1 + n2;
+      }
+
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
-          // Registramos apuntando a la raíz donde está el archivo físicamente
           navigator.serviceWorker
-            .register("../service-worker.js")
-            .then((reg) => {
-              console.log(
-                "Service Worker registrado con éxito en el scope:",
-                reg.scope,
-              );
-            })
-            .catch((err) =>
-              console.log("Error al registrar el Service Worker", err),
-            );
+            .register("./service-worker.js")
+            .then((reg) => console.log("SW registrado en raíz:", reg.scope))
+            .catch((err) => console.log("Error SW:", err));
         });
       }
     </script>
   </body>
-
-  <footer></footer>
 
   <link
     rel="stylesheet"
